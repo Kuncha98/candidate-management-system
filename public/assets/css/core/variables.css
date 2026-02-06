@@ -1,0 +1,14 @@
+:root {
+  --primary: #164885;
+  --primary-hover: #123c6f;
+  --secondary: #007bff;
+  --white: #ffffff;
+  --page-bg: #f7faff;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 15px;
+
+  --shadow-sm: 0 4px 10px rgba(22, 72, 133, 0.08);
+  --shadow-md: 0 10px 30px rgba(22, 72, 133, 0.12);
+}

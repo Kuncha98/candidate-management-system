@@ -1,0 +1,30 @@
+body.auth-page {
+  display: flex;
+  align-items: center;
+  margin: 0 1.5rem;
+  min-height: 100vh;
+}
+
+.auth-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.auth-image {
+  background: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d")
+    center/cover no-repeat;
+}
+
+.auth-form {
+  padding: 5rem 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .auth-image {
+    display: none;
+  }
+
+  .auth-form {
+    padding: 2rem;
+  }
+}
