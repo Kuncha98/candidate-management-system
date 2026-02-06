@@ -1,69 +1,78 @@
-# CodeIgniter 4 Application Starter
+# Candidate Management System
 
-## What is CodeIgniter?
+A simple **Candidate Management System** built with **CodeIgniter 4** and **Bootstrap 5**.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Features
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- **Manual Authentication** for Admin, User, and Candidate roles
+- **Admin Dashboard**: Manage users, view all candidates
+- **User Dashboard**: Browse candidates, apply search and filter options
+- **Candidate Dashboard**: Self-registration, profile update
+- **Admin Management**: Admin can add skills and manage candidate workflows
+- **Candidate Profile**: View and update candidate details
+- **Advanced Search and Filtering**: Filter candidates by skills, location, experience, etc.
+- **Candidate Workflow**: Candidates move through an applied → shortlisted → interview → selected pipeline
+- **Secure Route Filters**: Role-based access control for routes and pages
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Tech Stack
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Backend**: CodeIgniter 4
+- **Frontend**: Bootstrap 5
+- **Database**: MySQL
+- **PHP**: PHP 8+
 
-## Installation & updates
+## Setup Instructions
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Follow the steps below to set up and run the project locally.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### Prerequisites
 
-## Setup
+Before you start, make sure you have the following installed:
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+- **PHP 8+**
+- **Composer** for dependency management
+- **MySQL** for the database
 
-## Important Change with index.php
+### Installation
 
-`index.php` is no longer in the root of the project! It has been moved inside the _public_ folder,
-for better security and separation of components.
+1. Clone the repository:
 
-This means that you should configure your web server to "point" to your project's _public_ folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter _public/..._, as the rest of your logic and the
-framework are exposed.
+   git clone <repo-url>
+   cd project-folder
 
-**Please** read the user guide for a better explanation of how CI4 works!
+2. Install the dependencies using Composer:
 
-## Repository Management
+   composer install
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+3. Set up environment configuration:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+   cp env.example .env
 
-## Server Requirements
+4. Generate the application key:
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+   php spark key:generate
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+5. Run the migrations to create the necessary database tables:
 
-> [!WARNING]
->
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+   php spark migrate
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+6. Seed the database with initial data (e.g., Admin, Statuses):
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+   php spark db:seed AdminSeeder
+   php spark db:seed StatusSeeder
+
+7. Start the development server:
+
+   php spark serve
+
+### Accessing the Application
+
+Once the server is running, you can access the application by navigating to:
+
+```
+http://localhost:8080
+```
+
+### License
+
+This project is open-source and available under the MIT License. See the [LICENSE](LICENSE) file for more details.
