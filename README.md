@@ -37,33 +37,47 @@ Before you start, make sure you have the following installed:
 
 1. Clone the repository:
 
+   ```bash
    git clone <repo-url>
    cd project-folder
+   ```
 
 2. Install the dependencies using Composer:
 
+   ```bash
    composer install
+   ```
 
 3. Set up environment configuration:
 
+   ```bash
    cp env.example .env
+   ```
 
 4. Generate the application key:
 
+   ```bash
    php spark key:generate
+   ```
 
 5. Run the migrations to create the necessary database tables:
 
+   ```bash
    php spark migrate
+   ```
 
 6. Seed the database with initial data (e.g., Admin, Statuses):
 
+   ```bash
    php spark db:seed AdminSeeder
    php spark db:seed StatusSeeder
+   ```
 
 7. Start the development server:
 
+   ```bash
    php spark serve
+   ```
 
 ### Accessing the Application
 
